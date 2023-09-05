@@ -1,9 +1,6 @@
 [
     {
-        "f_name": "Jacob",
-        "l_name": "Dupea",
-        "car_make": "Subaru",
-        "car_model": "Legacy gt",
-        "year": "2005"
+        "email": "Jacobdupea@gmail.com",
+        "password": "Password1234"
     }
 ]

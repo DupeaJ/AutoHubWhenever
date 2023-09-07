@@ -1,78 +1,85 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
-const express = require('express');
-const session = require('express-session');
-const routes = require("./controllers");
-const exphbs = require('express-handlebars');
+const express = require('express')
+const app = express()
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require("express-session");
+const methodOverride = require('method-override')
 
-const path = require("path");
-const sequelize = require('./config/connection')
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// Loads environment variables from .env file
+const initializePassport = require('./passport-config')
+initializePassport(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+)
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+const users = []
 
-const hbs = exphbs.create({ helpers });
-
-const sess = {
-    secret: "Super secret secret",
+app.set('view-engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-};
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+    saveUninitialized:false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(session(sess));
+app.get('/', checkAuthenticated, (req, res) => {
+    res.render("index.ejs", {name: req.user.name})
+})
 
+app.get('/login', checkNotAuthenticated, (req, res) => {
+    res.render('login.ejs')
+})
+app.post("/login", checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+})) 
 
+app.get("/register", checkNotAuthenticated, (req, res) => {
+    res.render("register.ejs");
+})
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        res.redirect('/login')
+    } catch {
+        res.redirect('/register')
+    }
+    console.log(users)
+})
 
-app.use(routes);
+app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login')
+})
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log("Now listening"));
-});
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+}
 
-// const express = require("express");
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
 
-// const session = require("express-session");
-// const exphbs = require("express-handlebars");
-
-// const authRoute = require("./controllers/api/authController");
-// const sequelize = require("./config/connection");
-// const helpers = require("./helpers/fsUtils");
-// const { authController } = require("./controllers");
-
-
-
-// // Create a MySQL connection pool using environment variables
-// const db = mysql.createPool({
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_NAME,
-// });
-
-
-
-
-// const hbs = exphbs.create({ helpers });
-
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
-
-
-
-
-
-// app.get("/login", authController.renderLoginForm);
-// app.post("/login", authController.processLogin);
-
-// app.use(authRoute);
-
-
+app.listen( 3001)

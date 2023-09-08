@@ -6,18 +6,33 @@ const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
+const mysql = require('mysql')
 const flash = require('express-flash')
 const session = require("express-session");
 const methodOverride = require('method-override')
+const passportconfig = require('./config/passport-config')
 
-const initializePassport = require('./passport-config')
+
+const db = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
+})
+
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('MYSQL connected');
+})
+
+const initializePassport = require('./config/passport-config')
 initializePassport(
     passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
+    email => db.query('SELECT * FROM users WHERE email = ?', [email]),
+    id => db.query('SELECT * FROM users WHERE id = ?', [id])
 )
-
-const users = []
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -47,20 +62,23 @@ app.post("/login", checkNotAuthenticated, passport.authenticate('local', {
 app.get("/register", checkNotAuthenticated, (req, res) => {
     res.render("register.ejs");
 })
+
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
+        const hashedPassword = await bcrypt.hash(req.body.password, 15)
+        const newUser = {
             name: req.body.name,
             email: req.body.email,
             password: hashedPassword
-        })
-        res.redirect('/login')
+        };
+
+        db.query('INSERT INTO user SET ?', newUser, (err, result) => {
+            if (err) throw err;
+            res.redirect('/login')
+        });
     } catch {
         res.redirect('/register')
     }
-    console.log(users)
 })
 
 app.delete('/logout', (req, res) => {
@@ -82,4 +100,6 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen( 3001)
+app.listen(3001, () => {
+    console.log('Server is live at port 3001');
+});

@@ -10,7 +10,6 @@ const mysql = require('mysql')
 const flash = require('express-flash')
 const session = require("express-session");
 const methodOverride = require('method-override')
-const passportconfig = require('./config/passport-config')
 
 
 const db = mysql.createConnection({
@@ -27,12 +26,28 @@ db.connect((err) => {
     console.log('MYSQL connected');
 })
 
-const initializePassport = require('./config/passport-config')
+initializePassport = require('./config/passport-config')
 initializePassport(
     passport,
-    email => db.query('SELECT * FROM users WHERE email = ?', [email]),
-    id => db.query('SELECT * FROM users WHERE id = ?', [id])
-)
+    async email => {
+        const result = await new Promise((resolve, reject) => {
+            db.query('SELECT * FROM users WHERE email = ?', [email], (error, results) => {
+                if (error) return reject(error);
+                resolve(results[0]);
+            });
+        });
+        return result;
+    },
+    async id => {
+        const result = await new Promise((resolve, reject) => {
+            db.query('SELECT * FROM users WHERE id = ?', [id], (error, results) => {
+                if (error) return reject(error);
+                resolve(results[0]);
+            });
+        });
+        return result;
+    }
+);
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -72,7 +87,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
             password: hashedPassword
         };
 
-        db.query('INSERT INTO user SET ?', newUser, (err, result) => {
+        db.query('INSERT INTO users SET ?', newUser, (err, result) => {
             if (err) throw err;
             res.redirect('/login')
         });

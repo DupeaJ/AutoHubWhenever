@@ -1,30 +1,65 @@
-const LocalStrategy = require('passport-local').Strategy
-const bcrypt = require('bcrypt')
-function initialize(passport, getUserByEmail, getUserById) {
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
+const db = require("./database");
+
+function initialize(passport) {
     const authenticateUser = async (email, password, done) => {
         try {
-            const user = await getUserByEmail(email)
+            const user = await getUserByEmail(email);
             if (user == null) {
-            return done(null, false, { message: "no user with that email" })
-        }
-        console.log("Password from form:", password);
-        console.log("Password from user object:", user.password);
+                return done(null, false, {
+                    message: "no user with that email",
+                });
+            }
             if (await bcrypt.compare(password, user.password)) {
-                console.log(user);
-                return done(null, user)
+                return done(null, user);
             } else {
-                return done(null, false, { message: 'Incorrect Password' })
+                return done(null, false, { message: "Incorect Password" });
             }
         } catch (e) {
-            return done(e)
+            return done(e);
         }
-    }
-    passport.use(new LocalStrategy({ usernameField: 'email' },
-        authenticateUser))
-    passport.serializeUser((user, done) => done(null, user.id))
-    passport.deserializeUser((id, done) => {
-        return done(null, getUserById(id))
-    })
+    };
+
+    const getUserByEmail = async (email) => {
+        const result = await new Promise((resolve, reject) => {
+            db.query(
+                "SELECT * FROM users WHERE email = ?",
+                [email],
+                (error, results) => {
+                    if (error) return reject(error);
+                    resolve(results[0]);
+                }
+            );
+        });
+        return result;
+    };
+    const getUserById = async (id) => {
+        const result = await new Promise((resolve, reject) => {
+            db.query(
+                "SELECT * FROM users WHERE id = ?",
+                [id],
+                (error, results) => {
+                    if (error) return reject(error);
+                    resolve(results[0]);
+                }
+            );
+        });
+        return result;
+    };
+
+    passport.use(
+        new LocalStrategy({ usernameField: "email" }, authenticateUser)
+    );
+    passport.serializeUser((user, done) => done(null, user.id));
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const user = await getUserById(id);
+            return done(null, user);
+        } catch (error) {
+            return done(error);
+        }
+    });
 }
 
-module.exports = initialize
+module.exports = initialize;

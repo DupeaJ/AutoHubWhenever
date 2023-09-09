@@ -5,9 +5,7 @@
             <img src="./images/logo.png" alt="logo">
         </div>
         <h1>Welcome back, <%= name %>!</h1>
-        <form action="/logout?_method=DELETE" method="POST">
-            <button type="submit">Log Out</button>
-        </form>
+
     </header>
 
 <!-- Nav Bar -->
@@ -26,32 +24,36 @@
                 <!-- insert variable here -->
                 <p>You need your oil changed at miles</p>
             </section>
-             <section class="tires">
+            <section class="tires">
                 <!-- insert variable here -->
                 <p>You need your tires changed at miles</p>
             </section>
     </section>
 
 <!-- Profile Overview -->
-     <section class="dashboard">
+    <section class="dashboard">
         <h2><%= name %>'s Car</h2>
             <section class="car-info">
                 <!-- insert car info here -->
                 <p>Car Information</p>
             </section>
-             <section class="car-photo">
+            <section class="car-photo">
                 <!-- insert car photo here -->
                 <img></img>
             </section>
     </section>
 
-     <section class="weather">
+    <section class="weather">
         <!-- insert weather data here -->
-         <div class="box">
+        <div class="box">
             <p>Temp:  F</p>
             <p>Wind: mph</p>
             <p>Humidity: %</p>
         </div>
     </section>
-    
+    <div>
+    <form action="/logout" method="POST">
+            <button type="logout">Log Out</button>
+        </form>
+    </div>
 </body>

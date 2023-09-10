@@ -10,6 +10,7 @@ const initializePassport = require("./config/passport-config");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const PORT = process.env.PORT
 
 initializePassport(passport);
 
@@ -38,6 +39,6 @@ app.use(registerRoutes);
 app.use(loginRoutes);
 app.use(logoutRoutes);
 
-app.listen(3306, () => {
-    console.log("Server is live at port 3001");
+app.listen(PORT, () => {
+    console.log(`Server is live at port ${PORT}`);
 });

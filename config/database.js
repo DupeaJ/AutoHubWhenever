@@ -1,23 +1,22 @@
-const mysql = require("mysql2");
+const {Client} = require("pg");
 const dbUrl = process.env.JAWSDB_URL
 
-let connection;
-
-if (dbUrl) {
-    connection = mysql.createConnection(dbUrl);
-} else {
-
-connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: process.env.LOCAL_DB_PASSWORD,
-    database: process.env.LOCAL_DB_NAME,
-});
-}
-connection.connect(err => {
+let client = new Client({
+        connectionstring: dbUrl,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    });
+client.connect(err => {
     if (err) {
-        throw err;
+        console.error('connection error', err.stack);
+    } else {
+        console.log('connected to postgresql db');
     }
-    console.log("DB connected", results);
 });
+
+
+
+module.exports = client;
+
 

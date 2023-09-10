@@ -38,6 +38,6 @@ app.use(registerRoutes);
 app.use(loginRoutes);
 app.use(logoutRoutes);
 
-app.listen(3001, () => {
+app.listen(3306, () => {
     console.log("Server is live at port 3001");
 });

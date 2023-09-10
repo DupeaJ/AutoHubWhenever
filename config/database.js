@@ -1,17 +1,23 @@
 const mysql = require("mysql2");
+const dbUrl = process.env.JAWSDB_URL
 
-const db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+let connection;
+
+if (dbUrl) {
+    connection = mysql.createConnection(dbUrl);
+} else {
+
+connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: process.env.LOCAL_DB_PASSWORD,
+    database: process.env.LOCAL_DB_NAME,
 });
-
-db.query('SELECT 1', (err, results) => {
+}
+connection.connect(err => {
     if (err) {
         throw err;
     }
-    console.log("MYSQL connected", results);
+    console.log("DB connected", results);
 });
 
-module.exports = db;

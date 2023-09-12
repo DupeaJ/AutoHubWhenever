@@ -2,15 +2,14 @@ if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
 
-const express = require("express");
+const express = require('express');
 const app = express();
-const db = require("./config/database");
 const passport = require("passport");
 const initializePassport = require("./config/passport-config");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3001;
 
 initializePassport(passport);
 

@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 require("dotenv").config();
 
 const db = mysql.createConnection(
-    process.env.JAWSDB_URL
+    process.env.JAWSDB_SILVER_URL
 );
 
 db.connect((err) => {

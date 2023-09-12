@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const checkAuth = require('../middleware/checkNotAuthenticated');
-const passport = require('passport');
+const checkAuth = require("../middleware/checkNotAuthenticated");
+const passport = require("passport");
 
 router.get("/login", checkAuth, (req, res) => {
     res.render("login.ejs");

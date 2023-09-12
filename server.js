@@ -31,8 +31,6 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(methodOverride("_method"));
 
-app.use(express.static(__dirname + "/public"));
-
 const mainRoutes = require("./routes");
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");

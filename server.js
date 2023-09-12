@@ -1,6 +1,14 @@
+const { google } = require('googleapis');
+
+
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+
+const youtube = google.youtube({
+    version: 'v3',
+    auth: process.env.YOUTUBE_API_KEY
+});
 
 const express = require('express')
 const app = express()
@@ -82,4 +90,33 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen( 3001)
+app.get('/youtube-search', (req, res) => {
+    const query = req.query.q; // assuming you pass the search query as a parameter
+
+    youtube.search.list({
+        part: 'snippet',
+        q: query,
+        maxResults: 10 // You can change this value based on how many results you want
+    }, (err, response) => {
+        if (err) {
+            console.error('API error', err);
+            if (err.code === 403) {
+                return res.status(500).send('YouTube API quota exceeded');
+            } else if (err.code === 400) {
+                return res.status(500).send('Invalid API key');
+            } else {
+                return res.status(500).send('An error occurred');
+            }
+        }
+        
+        const results = response.data.items;
+        if (!results || results.length === 0) {
+            return res.render('youtubeResults.ejs', { videos: [], message: 'No results found' });
+        }
+        res.render('youtubeResults.ejs', { videos: results });
+    });
+});
+
+app.listen(3001, () => {
+    console.log("Server started on http://localhost:3001");
+});

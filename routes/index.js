@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const checkAuthenticated  = require('../middleware/checkAuthenticated');
+const checkAuthenticated = require('../middleware/checkAuthenticated');
 
 router.get("/", checkAuthenticated, (req, res) => {
     console.log(req.user);

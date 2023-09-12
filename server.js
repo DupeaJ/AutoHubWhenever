@@ -26,7 +26,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(express.static(__dirname + "/public"));
+
 app.use(methodOverride("_method"));
+
+app.use(express.static(__dirname + "/public"));
 
 const mainRoutes = require("./routes");
 const registerRoutes = require("./routes/registerRoutes");

@@ -1,3 +1,6 @@
+const db = require('./config/database');
+
+const createTable = '
 CREATE TABLE users(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -5,3 +8,4 @@ CREATE TABLE users(
     password VARCHAR(255) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+';

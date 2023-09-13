@@ -1,5 +1,18 @@
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
+// server.js
+
+const { fetchCarData } = require('./apiHELper');
+
+const model = 'camry';
+
+fetchCarData(model, function(error, response, body) {
+    if(error) return console.error('Request failed:', error);
+    else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
+    else console.log(body);
+});
+
+
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
 }
 
 const express = require('express');

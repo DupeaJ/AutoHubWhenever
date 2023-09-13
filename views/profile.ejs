@@ -21,10 +21,50 @@
     </nav>
 
 <!-- Form -->
-    <div class="video">
-        <h3>title</h3>
-        <p>Video</p>
-    </div>
+    <section>
+        <form action="">
+            <div>
+                <label for="make">Car Make: </label>
+                <input type="text" id="make" name="make" placeholder="Make" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="model">Car Model: </label>
+                <input type="text" id="model" name="model" placeholder="Model" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="year">Year: </label>
+                <input type="number" id="year" name="year" maxlength="4" required>
+            </div>
+
+            <br>
+
+            <div>
+                <label>Automatic</label>
+                <input type="radio" name="transmission" value="automatic">
+
+                <label>Manual</label>
+                <input type="radio" name="transmission" value="manual">
+            </div>
+
+            <br>
+
+            <div>
+                <input type="reset">
+            </div>
+
+            <br>
+
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </section>
 
 </body>
 </html>

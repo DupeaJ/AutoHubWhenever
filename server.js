@@ -32,11 +32,13 @@ const mainRoutes = require("./routes");
 const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const logoutRoutes = require("./routes/logoutRoutes");
+const navigationRoutes = require("./routes/navigationRoutes");
 
 app.use(mainRoutes);
 app.use(registerRoutes);
 app.use(loginRoutes);
 app.use(logoutRoutes);
+app.use(navigationRoutes);
 
 app.listen(3001, () => {
     console.log("Server is live at port 3001");

@@ -49,6 +49,8 @@ const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const logoutRoutes = require("./routes/logoutRoutes");
 const navigationRoutes = require("./routes/navigationRoutes");
+const profileRoutes = require("./routes/profileRoutes");
+
 
 app.use(mainRoutes);
 app.use(registerRoutes);

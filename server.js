@@ -63,11 +63,32 @@ app.post('/get-car-details', (req, res) => {
             console.error('Error:', response.statusCode, body.toString('utf8'));
             res.send('Error fetching car data.');
         } else {
-            // Assuming the fetched car data is JSON, you should parse it:
             const carData = JSON.parse(body);
             
-            // Now, render your main page and pass the fetched car data:
-            res.render('main', { carData: carData });
+            // Store user input in session variables
+            req.session.fuelType = req.body.fuel_type;
+            req.session.drive = req.body.drive;
+            req.session.cylinders = req.body.cylinders;
+            req.session.transmission = req.body.transmission;
+            req.session.make = req.body.make;
+            req.session.model = req.body.model;
+            req.session.year = req.body.year;
+            req.session.oilQues = req.body['oil-ques'];
+            req.session.tireQues = req.body['tire-ques'];
+            
+            // Now, render main page and pass the fetched car data and session data:
+            res.render('main', {
+                carData: carData,
+                fuelType: req.session.fuelType,
+                drive: req.session.drive,
+                cylinders: req.session.cylinders,
+                transmission: req.session.transmission,
+                make: req.session.make,
+                model: req.session.model,
+                year: req.session.year,
+                oilQues: req.session.oilQues,
+                tireQues: req.session.tireQues,
+            });
         }
     });
 });

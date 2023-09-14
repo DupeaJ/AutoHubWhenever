@@ -14,11 +14,15 @@ router.post("/library", checkAuthenticated, async (req, res) => {
     }
 });
 
-// router.get("/profile", (req, res) => {
-//     if (err) {
-//         return res.redirect("/");
-//     }
-//     res.render("profile.ejs");
-// });
+router.get("/profile", checkAuthenticated, async (req, res) => {
+    res.render("profile.ejs");
+});
 
+router.post("/profile", checkAuthenticated, async (req, res) => {
+    try {
+        console.log(req.body);
+    } catch {
+        res.redirect("/index");
+    }
+});
 module.exports = router;

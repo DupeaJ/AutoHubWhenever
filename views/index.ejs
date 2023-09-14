@@ -21,7 +21,24 @@
 
 <!-- Dashboard -->
     <section class="dashboard">
-        <h2><%= name %>'s Dashboard</h2>
+        <h2><%= name %>'s Dashboard</h2><!-- Profile Overview -->
+        <section class="dashboard">
+            <h2><%= name %>'s Car</h2>
+        
+            <!-- Car Model Input Form -->
+            <form action="/fetch-car-data" method="POST">
+                <input type="text" name="carModel" placeholder="Enter car model">
+                <button type="submit">Fetch Car Info</button>
+            </form>
+        
+            <section class="car-info">
+                <!-- insert car info here -->
+                <p>Car Information</p>
+            </section>
+        
+           
+        </section>
+
             <section class="oil">
                 <!-- insert variable here -->
                 <p>You need your oil changed at miles</p>

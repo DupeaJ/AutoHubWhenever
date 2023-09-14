@@ -57,6 +57,8 @@ app.use(registerRoutes);
 app.use(loginRoutes);
 app.use(logoutRoutes);
 app.use(navigationRoutes);
+app.use(profileRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`Server is live at port ${PORT}`);

@@ -1,19 +1,13 @@
-// server.js
-
-const { fetchCarData } = require('./apiHELper');
-
-const model = 'camry';
-
-fetchCarData(model, function(error, response, body) {
-    if(error) return console.error('Request failed:', error);
-    else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
-    else console.log(body);
-});
-
-
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+const { google } = require("googleapis");
+const { fetchCarData } = require("./apiHELper");
+
+const youtube = google.youtube({
+    version: 'v3',
+    auth: process.env.YOUTUBE_API_KEY
+});
 
 const express = require('express');
 const app = express();

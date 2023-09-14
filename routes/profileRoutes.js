@@ -20,4 +20,3 @@ router.post('/get-car-details', (req, res) => {
 });
 
 module.exports = router;
-

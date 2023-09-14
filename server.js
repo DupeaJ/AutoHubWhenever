@@ -1,3 +1,9 @@
+// server.js
+
+let profileData = {};
+
+const { fetchCarData } = require('./apiHELper');
+
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
@@ -43,12 +49,58 @@ const registerRoutes = require("./routes/registerRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const logoutRoutes = require("./routes/logoutRoutes");
 const navigationRoutes = require("./routes/navigationRoutes");
+const profileRoutes = require("./routes/profileRoutes");
+
 
 app.use(mainRoutes);
 app.use(registerRoutes);
 app.use(loginRoutes);
 app.use(logoutRoutes);
 app.use(navigationRoutes);
+app.use(profileRoutes);
+
+app.post('/get-car-details', (req, res) => {
+    const { make, model, year } = req.body;
+    
+    fetchCarData(model, (error, response, body) => {
+        if (error) {
+            console.error('Request failed:', error);
+            res.send('Error fetching car data.');
+        } else if (response.statusCode !== 200) {
+            console.error('Error:', response.statusCode, body.toString('utf8'));
+            res.send('Error fetching car data.');
+        } else {
+            const carData = JSON.parse(body);
+            
+            // Store user input in session variables
+            req.session.fuelType = req.body.fuel_type;
+            req.session.drive = req.body.drive;
+            req.session.cylinders = req.body.cylinders;
+            req.session.transmission = req.body.transmission;
+            req.session.make = req.body.make;
+            req.session.model = req.body.model;
+            req.session.year = req.body.year;
+            req.session.oilQues = req.body['oil-ques'];
+            req.session.tireQues = req.body['tire-ques'];
+            
+            // Now, render main page and pass the fetched car data and session data:
+            res.render('main', {
+                carData: carData,
+                fuelType: req.session.fuelType,
+                drive: req.session.drive,
+                cylinders: req.session.cylinders,
+                transmission: req.session.transmission,
+                make: req.session.make,
+                model: req.session.model,
+                year: req.session.year,
+                oilQues: req.session.oilQues,
+                tireQues: req.session.tireQues,
+            });
+        }
+    });
+});
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is live at port ${PORT}`);

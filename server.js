@@ -2,15 +2,6 @@
 
 const { fetchCarData } = require('./apiHELper');
 
-const model = 'camry';
-
-fetchCarData(model, function(error, response, body) {
-    if(error) return console.error('Request failed:', error);
-    else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
-    else console.log(body);
-});
-
-
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
@@ -58,6 +49,27 @@ app.use(loginRoutes);
 app.use(logoutRoutes);
 app.use(navigationRoutes);
 app.use(profileRoutes);
+
+app.post('/get-car-details', (req, res) => {
+    const { make, model, year } = req.body;
+    
+    fetchCarData(model, (error, response, body) => {
+        if (error) {
+            console.error('Request failed:', error);
+            res.send('Error fetching car data.');
+        } else if (response.statusCode !== 200) {
+            console.error('Error:', response.statusCode, body.toString('utf8'));
+            res.send('Error fetching car data.');
+        } else {
+            // Assuming the fetched car data is JSON, you should parse it:
+            const carData = JSON.parse(body);
+            
+            // Now, render your main page and pass the fetched car data:
+            res.render('main', { carData: carData });
+        }
+    });
+});
+
 
 
 app.listen(PORT, () => {

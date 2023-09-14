@@ -1,5 +1,7 @@
 // server.js
 
+let profileData = {};
+
 const { fetchCarData } = require('./apiHELper');
 
 if (process.env.NODE_ENV !== 'production') {

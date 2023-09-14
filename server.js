@@ -7,6 +7,13 @@ const { fetchCarData } = require('./apiHELper');
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+const { google } = require("googleapis");
+const { fetchCarData } = require("./apiHELper");
+
+const youtube = google.youtube({
+    version: 'v3',
+    auth: process.env.YOUTUBE_API_KEY
+});
 
 const express = require('express');
 const app = express();

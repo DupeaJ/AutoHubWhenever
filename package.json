@@ -17,7 +17,8 @@
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "2.88.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

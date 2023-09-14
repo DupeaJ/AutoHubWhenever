@@ -1,17 +1,16 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
+require("dotenv").config();
 
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-});
+const db = mysql.createConnection(
+    process.env.JAWSDB_SILVER_URL
+);
 
 db.connect((err) => {
     if (err) {
-        throw err;
+        console.error("connection error", err.stack);
+    } else {
+        console.log("connected to MySQL db");
     }
-    console.log("MYSQL connected");
 });
 
 module.exports = db;

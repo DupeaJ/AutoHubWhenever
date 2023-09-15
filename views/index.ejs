@@ -10,67 +10,77 @@
 
 <!-- main dashboard page -->
 <body>
-    <header>
+    <header class="row radius">
         <div id="logo">
-            <img src="./images/logo.png" alt="logo">
+            <img src="./images/logo.png" alt="logo" class="radius">
+            <div class="flex-end">
+            <h1>Welcome back, <%= name %>!</h1>
         </div>
-        <h1>Welcome back, <%= name %>!</h1>
-
+        </div>
+        
     </header>
 
 <!-- Nav Bar -->
-    <nav>
+    <main style="border: 2px solid red" class="columns">
+    <nav class="column-is-two-fifths radius" style="border:2px solid black">
         <ul class="nav navbar-nav navbar-right"></ul>
+            <div>
             <a href="/index">Home</a>
-            <a href="/profile">Profile</a>        
+        </div>
+            <div>
+            <a href="/profile">Profile</a> 
+        </div>       
             <a href="/library"> Library</a>
         </ul>
     </nav>
-
     <!-- YouTube Search -->
-<section class="youtube-search">
-    <h2>Search YouTube</h2>
-    <form action="/youtube-search" method="GET">
-        <label for="youtubeQuery">Search:</label>
-        <input type="text" id="youtubeQuery" name="q" required>
-        <button type="submit">Search</button>
-    </form>
-</section>
+    
+    <div class="column radius" style="border:2px solid green">
+        <section class="youtube-search">
+            <h2>Search YouTube</h2>
+            <form action="/youtube-search" method="GET">
+                <label for="youtubeQuery">Search:</label>
+                <input type="text" id="youtubeQuery" name="q" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section class="dashboard">
+            <h2><%= name %>'s Dashboard</h2>
+                <section class="oil">
+                    <!-- insert variable here -->
+                    <p>You need your oil changed at miles</p>
+                </section>
+                <section class="tires">
+                    <!-- insert variable here -->
+                    <p>You need your tires changed at miles</p>
+                </section>
+        </section>
+        <section class="dashboard">
+            <h2><%= name %>'s Car</h2>
+                <section class="car-info">
+                    <!-- insert car info here -->
+                    <p>Car Information</p>
+                </section>
+                <section class="car-photo">
+                    <!-- insert car photo here -->
+                    <img></img>
+                </section>
+        </section>
+    </div>
+
 
 <!-- Dashboard -->
-    <section class="dashboard">
-        <h2><%= name %>'s Dashboard</h2>
-            <section class="oil">
-                <!-- insert variable here -->
-                <p>You need your oil changed at miles</p>
-            </section>
-            <section class="tires">
-                <!-- insert variable here -->
-                <p>You need your tires changed at miles</p>
-            </section>
-    </section>
 
 <!-- Profile Overview -->
-    <section class="dashboard">
-        <h2><%= name %>'s Car</h2>
-            <section class="car-info">
-                <!-- insert car info here -->
-                <p>Car Information</p>
-            </section>
-            <section class="car-photo">
-                <!-- insert car photo here -->
-                <img></img>
-            </section>
-    </section>
-
-    <section class="weather">
         <!-- insert weather data here -->
+    <!-- <section class="weather">
         <div class="box">
             <p>Temp:  F</p>
             <p>Wind: mph</p>
             <p>Humidity: %</p>
         </div>
-    </section>
+    </section> -->
+</main>
     <div>
     <form action="/logout" method="POST">
             <button type="logout">Log Out</button>

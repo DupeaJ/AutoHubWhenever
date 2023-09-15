@@ -1,20 +1,21 @@
 // server.js
+const express = require('express');
+const app = express();
 
-let profileData = {};
+// let profileData = {};
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
-const { google } = require("googleapis");
-const { fetchCarData } = require("./apiHELper");
+// const { google } = require("googleapis");
+// const { fetchCarData } = require("./apiHELper");
 
-const youtube = google.youtube({
-    version: 'v3',
-    auth: process.env.YOUTUBE_API_KEY
-});
+// const youtube = google.youtube({
+//     version: 'v3',
+//     auth: process.env.YOUTUBE_API_KEY
+// });
 
-const express = require('express');
-const app = express();
+
 const passport = require("passport");
 const initializePassport = require("./config/passport-config");
 const flash = require("express-flash");

@@ -19,15 +19,16 @@
             <a href="/library"> Library</a>
         </ul>
     </nav>
+
 <% console.log(videodata)%>
 <!-- Video Sections -->
 <div class="video">
-        <% videodata.forEach(video => {%>
-        <h3><%= video.title%></h3>
-       <iframe id="ytplayer" type="text/html" width="480" height="270"  frameborder="0" allowfullscreen
-        src=<%= video.url%>>
-        <%})%>
-    </div>
+    <% videodata.forEach(video => { %>
+        <h3><%= video.title %></h3>
+        <iframe id="ytplayer" type="text/html" width="480" height="270" frameborder="0" allowfullscreen
+                src="<%= video.url %>"></iframe>
+    <% }); %>
+</div>
     
 </body>
 </html>

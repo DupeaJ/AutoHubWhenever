@@ -9,15 +9,15 @@ const videodata = [
     },
     {
         title: "How to change a tire",
-        url: "https://www.youtube.com/watch?v=0KDMdYww4VE",
+        url: "https://www.youtube.com/embed/0KDMdYww4VE?si=mYrX_PDvxZx5gt2y",
     },
     {
         title: "How to jumpstart a car",
-        url: "https://www.youtube.com/watch?v=hyLwfthYjKw",
+        url: "https://www.youtube.com/embed/hyLwfthYjKw?si=ovMd7NWkLdkzR2eK",
     },
     {
         title: "How to drive a manual transmission in 1 minute",
-        url: "https://www.youtube.com/watch?v=UsOcXG2v3EE",
+        url: "https://www.youtube.com/embed/UsOcXG2v3EE?si=PP9ppfwZaNyYthze",
     },
 ];
 // instead of an array do a db query to select all from video 

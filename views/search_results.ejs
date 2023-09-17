@@ -1,0 +1,21 @@
+<!-- views/search_results.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Search Results</title>
+</head>
+<body>
+    <h1>YouTube Search Results</h1>
+    <ul>
+        <% results.forEach((result) => { %>
+            <li>
+                <h2><%= result.snippet.title %></h2>
+                <p><%= result.snippet.description %></p>
+                <a href="<%= 'https://www.youtube.com/watch?v=' + result.id.videoId %>" target="_blank">Watch on YouTube</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

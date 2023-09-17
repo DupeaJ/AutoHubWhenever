@@ -1,20 +1,14 @@
 // server.js
 const express = require('express');
 const app = express();
+require('dotenv').config();
+
 
 // let profileData = {};
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
-// const { google } = require("googleapis");
-// const { fetchCarData } = require("./apiHELper");
-
-// const youtube = google.youtube({
-//     version: 'v3',
-//     auth: process.env.YOUTUBE_API_KEY
-// });
-
 
 const passport = require("passport");
 const initializePassport = require("./config/passport-config");
@@ -22,6 +16,10 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 3001;
+const { google } = require('googleapis');
+const youtube = google.youtube('v3');
+const youtubeApiKey = process.env.YOUTUBE_API_KEY;
+
 
 initializePassport(passport);
 
@@ -49,6 +47,7 @@ const loginRoutes = require("./routes/loginRoutes");
 const logoutRoutes = require("./routes/logoutRoutes");
 const navigationRoutes = require("./routes/navigationRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const youtubeRoutes = require("./routes/youtubeRoutes");
 
 
 app.use(mainRoutes);
@@ -57,9 +56,28 @@ app.use(loginRoutes);
 app.use(logoutRoutes);
 app.use(navigationRoutes);
 app.use(profileRoutes);
+app.use(youtubeRoutes);
 
 app.post('/get-car-details', (req, res) => {
     const { make, model, year } = req.body;
+
+    async function searchYouTube(query) {
+        try {
+            const response = await youtube.search.list({
+                auth: youtubeApiKey,
+                part: 'snippet',
+                q: query,
+                maxResults: 10, // Adjust as needed
+            });
+    
+            const items = response.data.items;
+            return items;
+        } catch (error) {
+            console.error('Error searching YouTube:', error);
+            return [];
+        }
+    }
+    
     
     fetchCarData(model, (error, response, body) => {
         if (error) {

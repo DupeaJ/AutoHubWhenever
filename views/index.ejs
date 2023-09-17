@@ -21,8 +21,8 @@
     </header>
 
 <!-- Nav Bar -->
-    <main style="border: 2px solid red" class="columns">
-    <nav class="column-is-two-fifths radius" style="border:2px solid black">
+    <main style="border: 2px solid rgb(125, 18, 220)" class="columns">
+    <nav class="column-is-half radius" style="border:2px solid rgb(15, 165, 235)">
         <ul class="nav navbar-nav navbar-right"></ul>
             <div>
             <a href="/">Home</a>
@@ -35,28 +35,34 @@
     </nav>
     <!-- YouTube Search -->
     
-    <div class="column radius" style="border:2px solid green">
+    <div class="column radius" style="border:2px solid rgb(17, 175, 223)">
         <section class="youtube-search">
-            <h2>Search YouTube</h2>
+            <h2>Search YouTube
             <form action="/youtube-search" method="GET">
                 <label for="youtubeQuery">Search:</label>
                 <input type="text" id="youtubeQuery" name="q" required>
                 <button type="submit">Search</button>
-            </form>
+            </form></h2>
         </section>
         <section class="dashboard">
             <h2><%= name %>'s Dashboard</h2>
                 <section class="oil">
                     <!-- insert variable here -->
-                    <p>You need your oil changed at miles</p>
+                    <p>You need your oil changed at miles<label for="name"></label>
+                        <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
+                        </p>
                 </section>
                 <section class="tires">
                     <!-- insert variable here -->
-                    <p>You need your tires changed at miles</p>
+                    <p>You need your tires changed at miles<label for="name"></label>
+                        <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
+                        </p>
                 </section>
         </section>
-        <section class="dashboard">
-            <h2><%= name %>'s Car</h2>
+    
+        <div class="column1 radius " style="border:2px solid rgb(17, 175, 223)"> <section class="dashboard">
+            <h2>Your Auto</h2>
+            <p><%= name %>'s Car</p>
                 <section class="car-info">
                     <!-- insert car info here -->
                     <p>Car Information</p>

@@ -28,8 +28,10 @@ nav {
   width:200px;
   flex-direction: column;
 
+}
 
-
+nav.column {
+  position:relative;
 }
 
 nav a {
@@ -58,7 +60,95 @@ h1 {
   font-size: 35px;
   padding-bottom: 15px;
   padding-top: 15px;
-  margin-left:170px
+  margin-left:170px;
+  position:center;
+}
+
+div label {
+  position:relative;
+  left:500px;
+}
+
+div select {
+  position:absolute;
+  left:650px;
+}
+
+div input {
+  position:sticky;
+  left:850px;
+}
+div input#cylinders {
+  position:sticky;
+  left: 650px;
+}
+
+div input#make {
+  position:sticky;
+  left: 650px;
+}
+
+div input#model {
+  position:sticky;
+  left: 650px;
+}
+
+div input#year {
+  position:sticky;
+  left: 650px;
+}
+
+
+div.column{
+  position:relative;
+
+}
+
+form {
+  margin:15px;
+}
+
+form.label{
+  position: center;
+
+}
+div.column1 {
+  position:relative;
+}
+
+ul {
+  position:relative;
+  flex-direction:row;
+  left:700px;
+}
+
+div.video {
+  position: relative;
+  left:650px;
+}
+
+ul a {
+  position:relative;
+}
+
+h2 button{
+  position:relative;
+  right:50px;
+}
+
+h2 form {
+  position:relative;
+  right:50px;
+}
+
+h2 input#youtubeQuery {
+  position:relative;
+  right:50px;
+}
+
+p input#name {
+  position:relative;
+  left:100px;
 }
 /*
 #map {

@@ -1,3 +1,4 @@
+// youtubeRoutes.js
 const express = require('express');
 const router = express.Router();
 const { google } = require('googleapis');
@@ -9,6 +10,20 @@ const youtubeApiKey = process.env.YOUTUBE_API_KEY; // Use your API key
 // Handle YouTube search route
 router.get('/search', async (req, res) => {
     const searchQuery = req.query.q; // Get the search query from the URL query parameter
+
+    try {
+        // Implement your YouTube search logic here using the YouTube API key
+        const youtubeResults = await searchYouTube(searchQuery);
+        res.render('search_results', { results: youtubeResults });
+    } catch (error) {
+        console.error('Error searching YouTube:', error);
+        res.status(500).send('Error searching YouTube.');
+    }
+});
+
+// Handle YouTube search route (POST request)
+router.post('/search', async (req, res) => {
+    const searchQuery = req.body.q; // Get the search query from the request body
 
     try {
         // Implement your YouTube search logic here using the YouTube API key

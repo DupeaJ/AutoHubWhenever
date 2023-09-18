@@ -1,8 +1,7 @@
 // server.js
 const express = require('express');
 const app = express();
-require('dotenv').config();
-
+const { searchYouTube } = require('./config/youtubeAPI');
 
 // let profileData = {};
 
@@ -16,14 +15,32 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 3001;
-const { google } = require('googleapis');
-const youtube = google.youtube('v3');
+const baseApiUrl = 'https://www.googleapis.com/youtube/v3'
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
+const axios = require('axios');
+
+const { google } = require('googleapis');
+const youtube = google.youtube({
+    version: 'v3',
+    auth: youtubeApiKey,
+});
+
+
+app.get("/search-with-googleapis", async (req, res, next) => {
+    try {
+        const searchQuery = req.query.search_query;
+        const titles = await searchYouTube(searchQuery);
+        res.send(titles);
+    } catch (err) {
+        next(err);
+    }
+});
+
 
 
 initializePassport(passport);
 
-app.set("view-engine", "ejs");
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use(
@@ -58,66 +75,64 @@ app.use(navigationRoutes);
 app.use(profileRoutes);
 app.use(youtubeRoutes);
 
-app.post('/get-car-details', (req, res) => {
-    const { make, model, year } = req.body;
+// app.post('/get-car-details', (req, res) => {
+//     const { make, model, year } = req.body;
 
-    async function searchYouTube(query) {
-        try {
-            const response = await youtube.search.list({
-                auth: youtubeApiKey,
-                part: 'snippet',
-                q: query,
-                maxResults: 10, // Adjust as needed
-            });
+//     async function searchYouTube(query) {
+//         try {
+//             const response = await youtube.search.list({
+//                 auth: youtubeApiKey,
+//                 part: 'snippet',
+//                 q: query,
+//                 maxResults: 10, // Adjust as needed
+//             });
     
-            const items = response.data.items;
-            return items;
-        } catch (error) {
-            console.error('Error searching YouTube:', error);
-            return [];
-        }
-    }
+//             const items = response.data.items;
+//             return items;
+//         } catch (error) {
+//             console.error('Error searching YouTube:', error);
+//             return [];
+//         }
+//     }
     
     
-    fetchCarData(model, (error, response, body) => {
-        if (error) {
-            console.error('Request failed:', error);
-            res.send('Error fetching car data.');
-        } else if (response.statusCode !== 200) {
-            console.error('Error:', response.statusCode, body.toString('utf8'));
-            res.send('Error fetching car data.');
-        } else {
-            const carData = JSON.parse(body);
+//     fetchCarData(model, (error, response, body) => {
+//         if (error) {
+//             console.error('Request failed:', error);
+//             res.send('Error fetching car data.');
+//         } else if (response.statusCode !== 200) {
+//             console.error('Error:', response.statusCode, body.toString('utf8'));
+//             res.send('Error fetching car data.');
+//         } else {
+//             const carData = JSON.parse(body);
             
-            // Store user input in session variables
-            req.session.fuelType = req.body.fuel_type;
-            req.session.drive = req.body.drive;
-            req.session.cylinders = req.body.cylinders;
-            req.session.transmission = req.body.transmission;
-            req.session.make = req.body.make;
-            req.session.model = req.body.model;
-            req.session.year = req.body.year;
-            req.session.oilQues = req.body['oil-ques'];
-            req.session.tireQues = req.body['tire-ques'];
+//             // Store user input in session variables
+//             req.session.fuelType = req.body.fuel_type;
+//             req.session.drive = req.body.drive;
+//             req.session.cylinders = req.body.cylinders;
+//             req.session.transmission = req.body.transmission;
+//             req.session.make = req.body.make;
+//             req.session.model = req.body.model;
+//             req.session.year = req.body.year;
+//             req.session.oilQues = req.body['oil-ques'];
+//             req.session.tireQues = req.body['tire-ques'];
             
-            // Now, render main page and pass the fetched car data and session data:
-            res.render('main', {
-                carData: carData,
-                fuelType: req.session.fuelType,
-                drive: req.session.drive,
-                cylinders: req.session.cylinders,
-                transmission: req.session.transmission,
-                make: req.session.make,
-                model: req.session.model,
-                year: req.session.year,
-                oilQues: req.session.oilQues,
-                tireQues: req.session.tireQues,
-            });
-        }
-    });
-});
-
-
+//             // Now, render main page and pass the fetched car data and session data:
+//             res.render('main', {
+//                 carData: carData,
+//                 fuelType: req.session.fuelType,
+//                 drive: req.session.drive,
+//                 cylinders: req.session.cylinders,
+//                 transmission: req.session.transmission,
+//                 make: req.session.make,
+//                 model: req.session.model,
+//                 year: req.session.year,
+//                 oilQues: req.session.oilQues,
+//                 tireQues: req.session.tireQues,
+//             });
+//         }
+//     });
+// });
 
 app.listen(PORT, () => {
     console.log(`Server is live at port ${PORT}`);

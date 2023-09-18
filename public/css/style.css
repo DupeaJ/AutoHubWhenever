@@ -30,7 +30,7 @@ nav {
 
 }
 
-nav.column {
+/* nav.column {
   position:relative;
 }
 
@@ -41,7 +41,7 @@ nav a {
   margin:20px;
   font-size:25px;
 
-}
+} */
 
 .radius {
   border-radius: 15px;
@@ -98,22 +98,18 @@ div input#year {
   left: 650px;
 }
 
-
-div.column{
-  position:relative;
-
+.custom-width {
+  width: 70vw;
 }
 
-form {
+
+/* form {
   margin:15px;
-}
+} */
 
 form.label{
   position: center;
 
-}
-div.column1 {
-  position:relative;
 }
 
 ul {
@@ -143,7 +139,7 @@ h2 form {
 
 h2 input#youtubeQuery {
   position:relative;
-  right:50px;
+  right:5px;
 }
 
 p input#name {

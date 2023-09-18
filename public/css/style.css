@@ -40,7 +40,8 @@ nav ul a {
   padding:15px;
   border:15px;
   font-size:20px;
-  right:725px;
+  position:relative;
+  /* right:725px; */
 }
 
  nav.column {

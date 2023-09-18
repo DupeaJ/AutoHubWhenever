@@ -21,9 +21,9 @@
     </header>
 
 <!-- Nav Bar -->
-    <main style="border: 2px solid red" class="columns">
-    <nav class="column-is-two-fifths radius" style="border:2px solid black">
-        <ul class="nav navbar-nav navbar-right"></ul>
+<main style="border: 2px solid rgb(125, 18, 220)" class="columns p-4 custom-width">
+    <nav class="column is-1 radius" style="border:2px solid rgb(15, 165, 235)">
+        <ul class="nav navbar-nav navbar-left">
             <div>
             <a href="/">Home</a>
         </div>
@@ -34,32 +34,58 @@
         </ul>
     </nav>
     <!-- YouTube Search -->
-    
-    <div class="column radius" style="border:2px solid green">
-        <section class="dashboard">
-            <h2><%= name %>'s Dashboard</h2>
-                <section class="oil">
-                    <!-- insert variable here -->
-                    <p>You need your oil changed at miles</p>
+    <div class="column">
+        <div class="radius" style="border:2px solid rgb(17, 175, 223)">
+            
+            <section class="dashboard">
+                <h2><%= name %>'s Dashboard</h2>
+                    <section class="oil">
+                        <!-- insert variable here -->
+                        <p>You need your oil changed at miles<label for="name"></label>
+                            <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
+                            </p>
+                    </section>
+                    <section class="tires">
+                        <!-- insert variable here -->
+                        <p>You need your tires changed at miles<label for="name"></label>
+                            <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
+                            </p>
+                    </section>
+            </section>
+        </div>
+        <div class="column columns" style="margin-top: 10px;">
+            <div class="column radius" style="border:2px solid rgb(17, 175, 223);">
+                <section class="dashboard">
+                    <h2>Your Auto</h2>
+                    <p><%= name %>'s Car</p>
+                    <section class="car-info">
+                        <!-- insert car info here -->
+                        <p>Car Information</p>
+                    </section>
+                    <section class="car-photo">
+                        <!-- insert car photo here -->
+                        <img></img>
+                    </section>
                 </section>
-                <section class="tires">
-                    <!-- insert variable here -->
-                    <p>You need your tires changed at miles</p>
-                </section>
-        </section>
-        <section class="dashboard">
-            <h2><%= name %>'s Car</h2>
-                <section class="car-info">
-                    <!-- insert car info here -->
-                    <p>Car Information</p>
-                </section>
-                <section class="car-photo">
-                    <!-- insert car photo here -->
-                    <img></img>
-                </section>
-        </section>
+            </div>
+            <div class="column">
+                <h1>This is a second div in this nested column</h1>
+            </div>
+        </div>
+
     </div>
 
+<!-- Dashboard -->
+
+<!-- Profile Overview -->
+        <!-- insert weather data here -->
+    <!-- <section class="weather">
+        <div class="box">
+            <p>Temp:  F</p>
+            <p>Wind: mph</p>
+            <p>Humidity: %</p>
+        </div>
+    </section> -->
 </main>
     <div>
     <form action="/logout" method="POST">

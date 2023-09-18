@@ -36,14 +36,6 @@
     <!-- YouTube Search -->
     
     <div class="column radius" style="border:2px solid green">
-        <section class="youtube-search">
-            <h2>Search YouTube</h2>
-            <form action="/youtube-search" method="GET">
-                <label for="youtubeQuery">Search:</label>
-                <input type="text" id="youtubeQuery" name="q" required>
-                <button type="submit">Search</button>
-            </form>
-        </section>
         <section class="dashboard">
             <h2><%= name %>'s Dashboard</h2>
                 <section class="oil">
@@ -68,18 +60,6 @@
         </section>
     </div>
 
-
-<!-- Dashboard -->
-
-<!-- Profile Overview -->
-        <!-- insert weather data here -->
-    <!-- <section class="weather">
-        <div class="box">
-            <p>Temp:  F</p>
-            <p>Wind: mph</p>
-            <p>Humidity: %</p>
-        </div>
-    </section> -->
 </main>
     <div>
     <form action="/logout" method="POST">

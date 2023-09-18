@@ -1,0 +1,46 @@
+<!-- search_results.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Search Results</title>
+</head>
+<body>
+    <h1>YouTube Search Results</h1>
+    <ul>
+        <% results.forEach((result) => { %>
+            <li>
+                <h2><%= result.snippet.title %></h2>
+                <p><%= result.snippet.description %></p>
+                <a href="<%= 'https://www.youtube.com/watch?v=' + result.id.videoId %>" target="_blank">Watch on YouTube</a>
+            </li>
+        <% }); %>
+    </ul>
+
+    <!-- Include the JavaScript code here -->
+    <script>
+        function searchOnEnter(event) {
+            if (event.key === 'Enter') {
+                const searchQuery = document.getElementById("searchQuery").value;
+
+                fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ q: searchQuery }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response data here, e.g., display search results
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        console.error('Error searching YouTube:', error);
+                    });
+            }
+        }
+    </script>
+</body>
+</html>

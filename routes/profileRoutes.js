@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { fetchCarData } = require('../apiHELper');
+const {CarDetail} = require('../models')
 
-router.post('/get-car-details', (req, res) => {
+router.post('/get-car-details', async (req, res) => {
     const { 
         fuel_type, 
         drive, 
@@ -28,6 +29,20 @@ router.post('/get-car-details', (req, res) => {
 
     // You can still use fetchCarData here if needed
     // Example:
+    try{
+        await CarDetail.create({
+            userId: req.user.id, // Assuming you store user info in req.user
+            fuelType: fuel_type,
+            drive,
+            cylinders,
+            transmission,
+            make,
+            model,
+            year,
+            oilQues: oil_ques,
+            tireQues: tire_ques
+        }); 
+
     fetchCarData(model, function(error, response, body) {
         if (error) {
             console.error('Request failed:', error);
@@ -39,6 +54,11 @@ router.post('/get-car-details', (req, res) => {
             res.redirect('/');
         }
     });
+    }catch (error) {
+        console.error('Database error', error);
+        req.flash('error', "Failed to save car details. Please try again.");
+        res.redirect('/profile')
+    }
 });
 
 module.exports = router;

@@ -40,6 +40,7 @@ nav ul a {
   padding:15px;
   border:15px;
   font-size:20px;
+  right:725px;
 }
 
  nav.column {
@@ -164,6 +165,8 @@ p input#name {
   position:relative;
   left:100px;
 }
+
+
 /*
 #map {
     height: 400px;

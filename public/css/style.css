@@ -10,6 +10,10 @@ body {
 
 }
 
+main {
+  position:center;
+}
+
 #logo img {
   width: 250px;
   height: 90px;
@@ -25,23 +29,31 @@ body {
 }
 
 nav {
-  width:200px;
   flex-direction: column;
 
 }
 
-/* nav.column {
+
+
+nav ul a {
+  margin:15px;
+  padding:15px;
+  border:15px;
+  font-size:20px;
+}
+
+ nav.column {
   position:relative;
 }
 
-nav a {
+/* nav a {
   position: relative;
   padding-left:15px;
   padding:15px;
   margin:20px;
   font-size:25px;
 
-} */
+}  */
 
 .radius {
   border-radius: 15px;
@@ -107,9 +119,15 @@ div input#year {
   margin:15px;
 } */
 
+
 form.label{
   position: center;
 
+
+}
+
+form a {
+  position:center;
 }
 
 ul {

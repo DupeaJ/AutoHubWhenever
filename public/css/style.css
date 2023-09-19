@@ -10,7 +10,7 @@ body {
 
 }
 
-main {
+main.column{
   position:center;
 }
 
@@ -41,6 +41,7 @@ nav ul a {
   border:15px;
   font-size:20px;
   position:relative;
+  color: rgb(54, 0, 104);
   /* right:725px; */
 }
 
@@ -70,8 +71,9 @@ header div{
 }
 
 h1 {
-  color: black;
+  color: rgb(81, 32, 196);
   font-size: 35px;
+  font-style: italic;
   padding-bottom: 15px;
   padding-top: 15px;
   margin-left:170px;
@@ -112,6 +114,15 @@ div input#year {
   left: 650px;
 }
 
+div.video {
+  position: relative;
+  left:650px;
+}
+
+div.column {
+  position:center;
+}
+
 .custom-width {
   width: 70vw;
 }
@@ -138,13 +149,14 @@ ul {
   left:700px;
 }
 
-div.video {
-  position: relative;
-  left:650px;
-}
+
 
 ul a {
   position:relative;
+}
+
+h2 {
+  color:rgb(183, 0, 255);
 }
 
 h2 button{
@@ -157,16 +169,28 @@ h2 form {
   right:50px;
 }
 
-h2 input#youtubeQuery {
-  position:relative;
-  right:5px;
+/* h2 input#youtubeQuery {
+  position:center;
+  left:5px;
+} */
+
+p {
+  color:rgb(183, 0, 255)
 }
 
 p input#name {
-  position:relative;
-  left:100px;
+  position:sticky;
+  left:50px;
 }
 
+body.form {
+  justify-content: center;
+}
+
+.card {
+  background-color: rgb(63, 212, 246)
+
+}
 
 /*
 #map {

@@ -33,6 +33,10 @@ nav {
 
 }
 
+nav a {
+  position:relative;
+  margin:15px;
+}
 
 
 nav ul a {
@@ -76,7 +80,12 @@ h1 {
   font-style: italic;
   padding-bottom: 15px;
   padding-top: 15px;
-  margin-left:170px;
+  position:relative;
+  left:400px;
+ 
+}
+
+h1.custom-header button{
   position:center;
 }
 
@@ -92,7 +101,7 @@ div select {
 
 div input {
   position:sticky;
-  left:850px;
+  left:870px;
 }
 div input#cylinders {
   position:sticky;
@@ -114,14 +123,31 @@ div input#year {
   left: 650px;
 }
 
+div select#fuel_type {
+  position:sticky;
+  left:650px;
+}
+
+div select#transmission {
+  position:sticky;
+  left:650px;
+}
+
+div select#drive {
+  position:sticky;
+  left: 650px;
+}
+
 div.video {
   position: relative;
   left:650px;
 }
 
 div.column {
-  position:center;
+  position:relative;
+
 }
+
 
 .custom-width {
   width: 70vw;
@@ -131,6 +157,10 @@ div.column {
 /* form {
   margin:15px;
 } */
+
+section form {
+  padding:30px;
+}
 
 
 form.label{

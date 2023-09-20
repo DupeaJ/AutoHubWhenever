@@ -1,19 +1,43 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-body {
-  background-image: url('../../../images/PurpleBlueGradient.jpg');
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  color: black;
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../images/PurpleBlueGradient.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.form-section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
 
+.form-group {
+    margin-bottom: 15px;
+}
+
+.reset-button, .submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
 }
 
 main.column{
   position:center;
 }
-
+.margin-navbar{
+margin: 5px;
+font-size: 24px;
+color: rgb(81, 32, 196);
+text-decoration: underline;
+}
 #logo img {
   width: 250px;
   height: 90px;
@@ -244,7 +268,10 @@ body.form {
   background-color: rgb(63, 212, 246)
 
 }
-
+.car-photo img {
+    width: 150px;
+    height: auto;
+}
 /*
 #map {
     height: 400px;

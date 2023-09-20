@@ -38,7 +38,11 @@ nav a {
   margin:15px;
 }
 
-
+.align-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 nav ul a {
   margin:15px;
   padding:15px;
@@ -73,7 +77,14 @@ header div{
    /* justify-content:space-evenly; */
 
 }
-
+#Login-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.width25{
+  width: fit-content;
+}
 h1 {
   color: rgb(81, 32, 196);
   font-size: 35px;
@@ -81,7 +92,6 @@ h1 {
   padding-bottom: 15px;
   padding-top: 15px;
   position:relative;
-  left:400px;
  
 }
 
@@ -89,23 +99,36 @@ h1.custom-header button{
   position:center;
 }
 
-div label {
+/* div label {
   position:relative;
   left:500px;
-}
+} */
 
 div select {
   position:absolute;
   left:650px;
 }
 
-div input {
+/* div input {
   position:sticky;
   left:870px;
-}
+} */
 div input#cylinders {
   position:sticky;
   left: 650px;
+}
+.input-password {
+  width: calc(-2rem + 2rem );
+  max-width: 300px; 
+}
+.color-blue{
+  background-color: #4c8ccf ;
+}
+.welcome-message {
+  text-align: center;
+  font-size: 2em;
+  color: #511cc4; /* This is the same color as your custom-header class */
+  font-style: italic;
 }
 
 div input#make {

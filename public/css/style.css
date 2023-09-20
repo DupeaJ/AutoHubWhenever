@@ -6,8 +6,10 @@ body {
   height: 100vh;
   background-size: cover;
   color: black;
+}
 
-
+body.form {
+  position: center;
 }
 
 main.column{
@@ -34,7 +36,7 @@ nav {
 }
 
 nav a {
-  position:relative;
+  position:sticky;
   margin:15px;
 }
 
@@ -173,6 +175,10 @@ form a {
   position:center;
 }
 
+form button {
+  position:relative;
+}
+
 ul {
   position:relative;
   flex-direction:row;
@@ -213,9 +219,6 @@ p input#name {
   left:50px;
 }
 
-body.form {
-  justify-content: center;
-}
 
 .card {
   background-color: rgb(63, 212, 246)

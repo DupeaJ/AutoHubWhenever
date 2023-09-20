@@ -2,97 +2,74 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
-<!-- main dashboard page -->
 <body>
     <header class="row radius">
         <div id="logo">
             <img src="./images/logo.png" alt="logo" class="radius">
             <div class="flex-end">
-            <h1>Welcome back, <%= name %>!</h1>
+                <h1>Welcome back, <%= name %>!</h1>
+            </div>
         </div>
-        </div>
-        
     </header>
 
-
-   
-<!-- Nav Bar -->
-<main style="border: 2px solid rgb(125, 18, 220)" class="columns radius p-4 custom-width">
-    <nav class="card is-1 radius p-3" style="border:2px solid rgb(15, 165, 235)">
-        <div class="nav navbar-nav navbar-left">
-            <div>
-            <a href="/">Home</a>
-        </div>
-            <div>
-            <a href="/profile">Profile</a> 
-        </div>       
-            <a href="/library"> Library</a>
-        </div>
-    </nav>
-    <!-- YouTube Search -->
-    <div class="column">
-        <div class="card radius" style="border:2px solid rgb(17, 175, 223)">
-            
-            <section class="dashboard">
-                <h2><%= name %>'s Dashboard</h2>
+    <main style="border: 2px solid rgb(125, 18, 220)" class="columns radius p-4 custom-width">
+        <nav class="card is-1 radius p-3" style="border:2px solid rgb(15, 165, 235)">
+            <div class="nav navbar-nav navbar-left">
+                <div class="margin-navbar">
+                    <a href="/">Home</a>
+                </div>
+                <div class="margin-navbar">
+                    <a href="/profile">Profile</a> 
+                </div>
+                <div class="margin-navbar">
+                    <a href="/library">Library</a>
+                </div>
+            </div>
+        </nav>
+        <div class="column">
+            <div class="card radius" style="border:2px solid rgb(17, 175, 223)">
+                <section class="dashboard">
+                    <h2><%= name %>'s Dashboard</h2>
                     <section class="oil">
-                        <!-- insert variable here -->
-                        <p>You need your oil changed at miles<label for="name"></label>
-                            <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
-                            </p>
+                        <p>You need your oil changed at miles<label for="oil_change_miles"></label>
+                            <input type="text" id="oil_change_miles" name="oil_change_miles" required minlength="1" maxlength="12" size="12" />
+                        </p>
                     </section>
                     <section class="tires">
-                        <!-- insert variable here -->
-                        <p>You need your tires changed at miles<label for="name"></label>
-                            <input type="text" id="name" name="name" required minlength="1" maxlength="12" size="12" />
-                            </p>
-                    </section>
-            </section>
-        </div>
-        <div class="column columns" style="margin-top: 10px;">
-            <div class="column card radius" style="border:2px solid rgb(17, 175, 223);">
-                <section class="dashboard">
-                    <h2>Your Auto</h2>
-                    <p><%= name %>'s Car</p>
-                    <section class="car-info">
-                        <!-- insert car info here -->
-                        <p>Car Information</p>
-                    </section>
-                    <section class="car-photo">
-                        <!-- insert car photo here -->
-                        <img></img>
+                        <p>You need your tires changed at miles<label for="tire_change_miles"></label>
+                            <input type="text" id="tire_change_miles" name="tire_change_miles" required minlength="1" maxlength="12" size="12" />
+                        </p>
                     </section>
                 </section>
             </div>
-            <div class="column">
-                <h1></h1>
+            <div class="column columns" style="margin-top: 10px;">
+                <div class="column card radius" style="border:2px solid rgb(17, 175, 223);">
+                    <section class="dashboard">
+                        <h2>Your Auto</h2>
+                            <p><%= name %>'s Car</p>
+                        <section class="car-info">
+                            <p>Car Information</p>
+                        </section>
+                    <section class="car-photo">
+                        <img src="<%= carImage ? carImage : './images/tesla-placehold.jpg' %>" alt="Car Photo">
+                        </section>
+                </div>
+                <div class="column">
+                    <h1></h1>
+                </div>
             </div>
+        </main>
+        <div>
+            <form action="/logout" method="POST" style="display: flex; justify-content: center;">
+                <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px;">Log Out</button>
+            </form>
         </div>
-
-
-<!-- Dashboard -->
-
-<!-- Profile Overview -->
-        <!-- insert weather data here -->
-    <!-- <section class="weather">
-        <div class="box">
-            <p>Temp:  F</p>
-            <p>Wind: mph</p>
-            <p>Humidity: %</p>
-        </div>
-    </section> -->
-</main>
-    <div>
-    <form action="/logout" method="POST">
-            <button type="logout">Log Out</button>
-        </form>
-    </div>
 </body>
 
 </html>

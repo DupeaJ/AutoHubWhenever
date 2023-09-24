@@ -36,46 +36,26 @@
             <div class="card radius" style="border:2px solid rgb(17, 175, 223)">
                 <section class="dashboard">
                     <h2><%= name %>'s Car</h2>
-                    <!-- <section class="oil">
-                        <p>You need your oil changed at miles<label for="oil_change_miles"></label>
-                            <input type="text" id="oil_change_miles" name="oil_change_miles" required minlength="1" maxlength="12" size="12" />
-                        </p>
-                    </section>
-                    <section class="tires">
--->
-
                         <section class="car-info">
-    <!-- <p>Car Information</p> -->
                             <% if (cars.length > 0) { %>
-    <section class="car-info">
-        <h2>Your Cars</h2>
-        <% cars.forEach(car => { %>
-            <div class="car">
-                <p>Car Make: <%= car.make %></p>
-                <p>Car Model: <%= car.model %></p>
-                <p>Production Year: <%= car.productionYear %></p>
-                <!-- Add more car details as needed -->
-            </div>
-        <% }); %>
-    </section>
-<% } %>
+                                <section class="car-info">
+                                    <h2>Your Cars</h2>
+                                    <% cars.forEach(car => { %>
+                                        <div class="car">
+                                            <p>Car Make: <%= car.make %></p>
+                                            <p>Car Model: <%= car.model %></p>
+                                            <p>Production Year: <%= car.productionYear %></p>
+                                        </div>
+                                    <% }); %>
+                                    </section>
+                                    <% } %>
+                                </section>
                         </section>
-
-
-                        <!-- <p>You need your tires changed at miles<label for="tire_change_miles"></label>
-                            <input type="text" id="tire_change_miles" name="tire_change_miles" required minlength="1" maxlength="12" size="12" />
-                        </p>
-                    </section> -->
-                </section>
-            </div>
+                    </div>
             <div class="column columns" style="margin-top: 10px;">
                 <div class="column card radius" style="border:2px solid rgb(17, 175, 223);">
                     <section class="dashboard">
                         <h2>Your Auto</h2>
-                            <!-- <p><%= name %>'s Car</p>
-                        <section class="car-info">
-                            <p>Car Information</p>
-                        </section> -->
                     <section class="car-photo">
                         <img src="<%= carImage ? carImage : './images/tesla-placehold.jpg' %>" alt="Car Photo">
                         </section>

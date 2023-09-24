@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
                     user.password = await bcrypt.hash(user.password, salt);
                 },
             },
-            tableName: "users", // Corrected placement of the tableName option
+            tableName: "users",
         }
     );
 

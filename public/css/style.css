@@ -1,6 +1,5 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-
 html, body {
     margin: 0;
     padding: 0;
@@ -132,7 +131,25 @@ div select {
   position:absolute;
   left:650px;
 }
+.form-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align form elements */
+        }
 
+        /* Style the form elements */
+        .form-section div {
+            display: flex;
+            justify-content: space-between; /* Space elements evenly */
+            align-items: center; /* Center align input and label vertically */
+            margin-bottom: 10px; /* Add spacing between elements */
+        }
+
+        /* Style the buttons container */
+        .form-group {
+            display: flex;
+            justify-content: center; /* Center align buttons horizontally */
+        }
 /* div input {
   position:sticky;
   left:870px;

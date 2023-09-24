@@ -1,13 +1,10 @@
 // server.js
-const express = require('express');
-const app = express();
-const { searchYouTube } = require('./config/youtubeAPI');
-
-// let profileData = {};
-
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+const express = require('express');
+const app = express();
+const { searchYouTube } = require('./config/youtubeAPI');
 
 const passport = require("passport");
 const initializePassport = require("./config/passport-config");
@@ -15,16 +12,13 @@ const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 3001;
-const baseApiUrl = 'https://www.googleapis.com/youtube/v3'
 const youtubeApiKey = process.env.YOUTUBE_API_KEY;
-const axios = require('axios');
 
 const { google } = require('googleapis');
 const youtube = google.youtube({
     version: 'v3',
     auth: youtubeApiKey,
 });
-
 
 app.get("/search-with-googleapis", async (req, res, next) => {
     try {

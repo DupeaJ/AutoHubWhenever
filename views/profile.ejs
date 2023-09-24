@@ -1,106 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Profile</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+</head>
+<body>
+    <nav class="margin-navbar">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/library">Library</a>
+    </nav>
 
-    <body>
-        <nav class="margin-navbar">
-            <a href="/">Home</a>
-            <a href="/profile">Profile</a>
-            <a href="/library">Library</a>
-        </nav>
+    <h1>My Profile</h1>
 
-        <h1>My Profile</h1>
+    <section>
+        <form action="/get-car-details" method="POST" class="form-section color-blue">
+            <!-- ... existing car details ... -->
 
-        <section>
-            <form action="/get-car-details" method="POST" class="form-section color-blue">
-                <!-- ... existing car details ... -->
+            <div>
+                <label for="make">Car Make: </label>
+                <input type="text" id="make" name="make" placeholder="Make" required />
+            </div>
+            <div>
+                <label for="model">Car Model: </label>
+                <input type="text" id="model" name="model" placeholder="Model" required />
+            </div>
+            <div>
+                <label for="productionYear">Production Year: </label>
+                <input type="number" id="productionYear" name="productionYear" min="1900" max="2099" step="1" />
+            </div>
+            <div class="form-group">
+                <input type="reset" onclick="return confirm('Do you really want to reset the form?');" class="reset-button" />
+                <input type="submit" class="submit-button" />
+            </div>
+        </form>
+    </section>
 
-                <div class="form-group">
-                    <label for="fuel_type">Fuel Type: </label>
-                    <select id="fuel_type" name="fuel_type">
-                        <option value="gas">Gas</option>
-                        <option value="diesel">Diesel</option>
-                        <option value="electricity">Electricity</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="drive">Drive: </label>
-                    <select id="drive" name="drive">
-                        <option value="fwd">Front-wheel Drive</option>
-                        <option value="rwd">Rear-wheel Drive</option>
-                        <option value="awd">All-wheel Drive</option>
-                        <option value="4wd">Four-wheel Drive</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="cylinders">Cylinders: </label>
-                    <input
-                        type="number"
-                        id="cylinders"
-                        name="cylinders"
-                        min="2"
-                        max="16"
-                        step="1"
-                    />
-                </div>
-                <div>
-                    <label for="transmission">Transmission: </label>
-                    <select id="transmission" name="transmission">
-                        <option value="manual">Manual</option>
-                        <option value="automatic">Automatic</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="make">Car Make: </label>
-                    <input
-                        type="text"
-                        id="make"
-                        name="make"
-                        placeholder="Make"
-                        required
-                    />
-                </div>
-                <div>
-                    <label for="model">Car Model: </label>
-                    <input
-                        type="text"
-                        id="model"
-                        name="model"
-                        placeholder="Model"
-                        required
-                    />
-                </div>
-                <div>
-                    <label
-                        >At what mileage did you last change your oil?
-                    </label>
-                    <input type="number" name="oil-ques" />
-                </div>
-                <div>
-                    <label
-                        >At what mileage did you last change your tires?
-                    </label>
-                    <input type="number" name="tire-ques" />
-                </div>
-                <div class="form-group">
-                    <input
-                        type="reset"
-                        onclick="return confirm('Do you really want to reset the form?');"
-                        class="reset-button"
-                    />
-                    <input type="submit" class="submit-button" />
-                </div>
-            </form>
-        </section>
-                <div>
-            <form action="/logout" method="POST" style="display: flex; justify-content: center;">
-                <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; text-decoration: none;">Log Out</button>
-            </form>
-        </div>
-    </body>
+    <div>
+        <form action="/logout" method="POST" style="display: flex; justify-content: center;">
+            <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; text-decoration: none;">Log Out</button>
+        </form>
+    </div>
+</body>
 </html>

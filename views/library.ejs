@@ -25,9 +25,21 @@
     <!-- Navigation Bar -->
 <nav class="card is-1 radius p-3 margin-navbar" style="border:2px solid rgb(15, 165, 235); display: flex; flex-direction: column; justify-content: flex-start;">
     <div class="nav navbar-nav navbar-left" style="display: flex; flex-direction: column;">
-        <div><a href="/">Home</a></div>
-        <div><a href="/profile">Profile</a></div>
-        <div><a href="/library"> Library</a></div>
+        <div><a href="/"><figure class="image is-64x64">
+            <img src='../../../images/GradientHomeIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/profile"><figure class="image is-64x64">
+            <img src='../../../images/GradientProfileIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/library"><figure class="image is-64x64">
+            <img src='../../../images/LibraryIconFree.png'>
+          </figure>
+        </a>
+    </div>
     </div>
     <div style="margin-top: auto;text-decoration: none;">
         <form action="/logout" method="POST" style="display: flex; justify-content: center;">
@@ -52,19 +64,20 @@
                         <button type="submit" style="position: relative; margin-top: 10px;">Search</button>
                     </form>
                 </section>
-                <br><br>
-        
-    </nav>
-
-<% console.log(videodata)%>
-<!-- Video Sections -->
-<div class="video">
-    <% videodata.forEach(video => { %>
-        <h3><%= video.title %></h3>
-        <iframe id="ytplayer" type="text/html" width="480" height="270" frameborder="0" allowfullscreen
-                src="<%= video.url %>"></iframe>
-    <% }); %>
-</div>
+                
+                <!-- Video Section -->
+                <section class="video-section">
+                    <% console.log(videodata)%>
+                    <% videodata.forEach(video => { %>
+                        <h3><%= video.title %></h3>
+                        <iframe id="ytplayer" type="text/html" width="480" height="270" frameborder="0" allowfullscreen src="<%= video.url %>"></iframe>
+                    <% }); %>
+                </section>
+            </section>
+        </div>
+    </div>
     
+</main>
+
 </body>
 </html>

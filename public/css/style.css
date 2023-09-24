@@ -38,6 +38,15 @@ font-size: 24px;
 color: rgb(81, 32, 196);
 text-decoration: underline;
 }
+
+/* .margin-navbar figure.image {
+  position:relative;
+  left:450px;
+  margin:15px;
+  border:15px;
+
+} */
+
 #logo img {
   width: 250px;
   height: 90px;
@@ -116,6 +125,9 @@ h1 {
   padding-bottom: 15px;
   padding-top: 15px;
   position:relative;
+  margin:15px;
+
+
  
 }
 

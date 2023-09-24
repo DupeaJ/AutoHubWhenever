@@ -1,7 +1,6 @@
 const db = require("../config/database");
 
 // sophia: update urls 
-// JAWSDB: need to create video table; source schema.sql 
 const videodata = [
     {
         title: "How to Change your Oil in less than 5 mins",

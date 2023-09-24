@@ -20,7 +20,7 @@ const videodata = [
         url: "https://www.youtube.com/embed/UsOcXG2v3EE?si=PP9ppfwZaNyYthze",
     },
 ];
-// instead of an array do a db query to select all from video 
+
 router.get("/library", checkAuthenticated, async (req, res) => {
     res.render("library.ejs", {
         videodata, length: videodata.length});

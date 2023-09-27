@@ -1,12 +1,12 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    background-image: url('../../../images/PurpleBlueGradient.jpg');
+    background-image: url("../../../images/PurpleBlueGradient.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,14 +23,15 @@ html, body {
     margin-bottom: 15px;
 }
 
-.reset-button, .submit-button {
+.reset-button,
+.submit-button {
     padding: 10px 20px;
     font-size: 16px;
     margin: 5px;
 }
 
-main.column{
-  position:center;
+main.column {
+    position: center;
 }
 .margin-navbar{
 margin: 5px;
@@ -51,17 +52,15 @@ flex-direction:row;
 }  */
 
 #logo img {
-  width: 250px;
-  height: 90px;
-  margin:0px 0 15px 0;
-  box-shadow: 1px 4px 4px rgb(48, 151, 195)
-  
-
+    width: 250px;
+    height: 90px;
+    margin: 0px 0 15px 0;
+    box-shadow: 1px 4px 4px rgb(48, 151, 195);
 }
 
 #logo div {
-  width: 50vw;
-  margin: 0 auto;
+    width: 50vw;
+    margin: 0 auto;
 }
 
 nav {
@@ -70,14 +69,14 @@ nav {
 }
 
 nav a {
-  position:relative;
-  margin:15px;
+    position: relative;
+    margin: 15px;
 }
 
-.align-center{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 nav ul a {
   margin:15px;
@@ -90,37 +89,25 @@ nav ul a {
   top:450px;
 }
 
- nav.column {
-  position:relative;
+nav.column {
+    position: relative;
 }
-
-/* nav a {
-  position: relative;
-  padding-left:15px;
-  padding:15px;
-  margin:20px;
-  font-size:25px;
-
-}  */
 
 .radius {
-  border-radius: 15px;
+    border-radius: 15px;
 }
 
-header div{
-  display:flex;
-    flex-direction:row;
-
-   /* justify-content:space-evenly; */
-
+header div {
+    display: flex;
+    flex-direction: row;
 }
-#Login-header{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#Login-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.width25{
-  width: fit-content;
+.width25 {
+    width: fit-content;
 }
 h1 {
   color: rgb(118, 41, 189);
@@ -137,114 +124,110 @@ h1 {
  
 }
 
-h1.custom-header button{
-  position:center;
+h1.custom-header button {
+    position: center;
 }
-
-/* div label {
-  position:relative;
-  left:500px;
-} */
 
 div select {
-  position:absolute;
-  left:650px;
+    position: absolute;
+    left: 650px;
+}
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* div input {
-  position:sticky;
-  left:870px;
-} */
+.form-section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+}
+
 div input#cylinders {
-  position:sticky;
-  left: 650px;
+    position: sticky;
+    left: 650px;
 }
 .input-password {
-  width: calc(-2rem + 2rem );
-  max-width: 300px; 
+    width: calc(-2rem + 2rem);
+    max-width: 300px;
 }
-.color-blue{
-  background-color: #4c8ccf ;
+.color-blue {
+    background-color: #4c8ccf;
 }
 .welcome-message {
-  text-align: center;
-  font-size: 2em;
-  color: #511cc4; /* This is the same color as your custom-header class */
-  font-style: italic;
+    text-align: center;
+    font-size: 2em;
+    color: #511cc4;
+    font-style: italic;
 }
 
 div input#make {
-  position:sticky;
-  left: 650px;
+    position: sticky;
+    left: 650px;
 }
 
 div input#model {
-  position:sticky;
-  left: 650px;
+    position: sticky;
+    left: 650px;
 }
 
 div input#year {
-  position:sticky;
-  left: 650px;
+    position: sticky;
+    left: 650px;
 }
 
 div select#fuel_type {
-  position:sticky;
-  left:650px;
+    position: sticky;
+    left: 650px;
 }
 
 div select#transmission {
-  position:sticky;
-  left:650px;
+    position: sticky;
+    left: 650px;
 }
 
 div select#drive {
-  position:sticky;
-  left: 650px;
+    position: sticky;
+    left: 650px;
 }
 
 div.video {
-  position: relative;
-  left:650px;
+    position: relative;
+    left: 650px;
 }
 
 div.column {
-  position:relative;
-
+    position: relative;
 }
-
 
 .custom-width {
-  width: 70vw;
+    width: 70vw;
 }
-
-
-/* form {
-  margin:15px;
-} */
 
 section form {
-  padding:30px;
+    padding: 30px;
 }
 
-
-form.label{
-  position: center;
-
-
+form.label {
+    position: center;
 }
 
 form a {
-  position:center;
+    position: center;
 }
 
 ul {
-  position:relative;
-  flex-direction:row;
-  left:700px;
+    position: relative;
+    flex-direction: row;
+    left: 700px;
 }
-
-
 
 ul a {
   position:relative;
@@ -252,40 +235,34 @@ ul a {
 }
 
 h2 {
-  color:rgb(183, 0, 255);
+    color: rgb(183, 0, 255);
 }
 
-h2 button{
-  position:relative;
-  right:50px;
+h2 button {
+    position: relative;
+    right: 50px;
 }
 
 h2 form {
-  position:relative;
-  right:50px;
+    position: relative;
+    right: 50px;
 }
 
-/* h2 input#youtubeQuery {
-  position:center;
-  left:5px;
-} */
-
 p {
-  color:rgb(183, 0, 255)
+    color: rgb(183, 0, 255);
 }
 
 p input#name {
-  position:sticky;
-  left:50px;
+    position: sticky;
+    left: 50px;
 }
 
 body.form {
-  justify-content: center;
+    justify-content: center;
 }
 
 .card {
-  background-color: rgb(63, 212, 246)
-
+    background-color: rgb(63, 212, 246);
 }
 .car-photo img {
     width: 150px;

@@ -8,7 +8,9 @@
     </head>
 
     <body>
+        <section>            
         <nav class="margin-navbar is-1 radius p-2">
+            <ul>
             <a href="/"><figure class="image is-64x64">
                 <img src='../../../images/GradientHomeIcon.png'>
               </figure>
@@ -20,13 +22,17 @@
             <a href="/library"><figure class="image is-64x64">
                 <img src='../../../images/LibraryIconFree.png'>
               </figure></a>
-        </nav>
-          <h1>My Profile</h1>
+            </ul>                          
+             </nav>  
+            </section>
+        
+       
 
         <section>
+                <h1>My Profile</h1>
             <form action="/get-car-details" method="POST" class="form-section color-blue">
                 <!-- ... existing car details ... -->
-
+               
                 <div class="form-group">
                     <label for="fuel_type">Fuel Type: </label>
                     <select id="fuel_type" name="fuel_type">

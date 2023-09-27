@@ -37,15 +37,18 @@ margin: 5px;
 font-size: 24px;
 color: rgb(81, 32, 196);
 text-decoration: underline;
+flex-direction:row;
+
 }
 
-/* .margin-navbar figure.image {
+
+ /* .margin-navbar a {
   position:relative;
   left:450px;
   margin:15px;
   border:15px;
 
-} */
+}  */
 
 #logo img {
   width: 250px;
@@ -62,7 +65,7 @@ text-decoration: underline;
 }
 
 nav {
-  flex-direction: column;
+  flex-direction: row;
 
 }
 
@@ -83,7 +86,8 @@ nav ul a {
   font-size:20px;
   position:relative;
   color: rgb(54, 0, 104);
-  /* right:725px; */
+  right:200px;
+  top:450px;
 }
 
  nav.column {
@@ -119,13 +123,15 @@ header div{
   width: fit-content;
 }
 h1 {
-  color: rgb(81, 32, 196);
+  color: rgb(118, 41, 189);
   font-size: 35px;
   font-style: italic;
   padding-bottom: 15px;
   padding-top: 15px;
   position:relative;
   margin:15px;
+  text-align:center;
+
 
 
  
@@ -242,6 +248,7 @@ ul {
 
 ul a {
   position:relative;
+
 }
 
 h2 {
@@ -283,6 +290,11 @@ body.form {
 .car-photo img {
     width: 150px;
     height: auto;
+}
+
+main {
+  position:relative;
+  left:200px;
 }
 /*
 #map {

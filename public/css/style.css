@@ -217,6 +217,10 @@ div.video {
     left: 650px;
 }
 
+div.radius-border {
+  border-radius:8px;
+}
+
 main.columns.radius.p-6.custom-width div.column {
     position: relative;
     text-align:center;
@@ -253,7 +257,6 @@ ul a {
 
 h2 {
     color: rgb(183, 0, 255);
-
 }
 
 h2 button {

@@ -12,7 +12,7 @@ body {
     background-attachment: fixed;
 }
 .form-section {
-    max-width: 500px;
+    /* max-width: 500px;  */
     margin: 0 auto;
     padding: 20px;
     background: #f9f9f9;
@@ -42,6 +42,10 @@ flex-direction:row;
 
 }
 
+nav.card.is-1.radius.p-5.margin-navbar {
+  top:50px;
+}
+
 
  /* .margin-navbar a {
   position:relative;
@@ -59,8 +63,9 @@ flex-direction:row;
 }
 
 #logo div {
-    width: 50vw;
+    width: 18vw; 
     margin: 0 auto;
+    /* right:200px; */
 }
 
 nav {
@@ -78,7 +83,7 @@ nav a {
     flex-direction: column;
     align-items: center;
 }
-nav ul a {
+/* nav ul a {
   margin:15px;
   padding:15px;
   border:15px;
@@ -87,7 +92,8 @@ nav ul a {
   color: rgb(54, 0, 104);
   right:200px;
   top:450px;
-}
+  width:30vw;
+} */
 
 nav.column {
     position: relative;
@@ -120,12 +126,18 @@ h1 {
   text-align:center;
 
 
-
- 
+}
+h1.div.card {
+  position:relative;
 }
 
 h1.custom-header button {
     position: center;
+}
+
+div.flex-end h1{
+  right:200px;
+  position:center;
 }
 
 div select {
@@ -135,7 +147,7 @@ div select {
 .form-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
 .form-section div {
@@ -159,7 +171,9 @@ div input#cylinders {
     max-width: 300px;
 }
 .color-blue {
-    background-color: #4c8ccf;
+    background-color: #45cefc;
+    padding:50px;
+
 }
 .welcome-message {
     text-align: center;
@@ -203,8 +217,10 @@ div.video {
     left: 650px;
 }
 
-div.column {
+main.columns.radius.p-6.custom-width div.column {
     position: relative;
+    text-align:center;
+
 }
 
 .custom-width {
@@ -214,6 +230,7 @@ div.column {
 section form {
     padding: 30px;
 }
+
 
 form.label {
     position: center;
@@ -236,6 +253,7 @@ ul a {
 
 h2 {
     color: rgb(183, 0, 255);
+
 }
 
 h2 button {
@@ -246,6 +264,10 @@ h2 button {
 h2 form {
     position: relative;
     right: 50px;
+}
+
+h3 {
+  color: rgb(183, 0, 255);
 }
 
 p {
@@ -272,6 +294,11 @@ body.form {
 main {
   position:relative;
   left:200px;
+}
+
+main.columns.radius.p-5{
+  left:650px;
+  top:75px;
 }
 /*
 #map {

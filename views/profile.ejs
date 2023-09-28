@@ -7,31 +7,42 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
     </head>
 
-    <body>
-        <section>            
-        <nav class="margin-navbar is-1 radius p-2">
-            <ul>
-            <a href="/"><figure class="image is-64x64">
-                <img src='../../../images/GradientHomeIcon.png'>
-              </figure>
-            </a>
-            <a href="/profile"><figure class="image is-64x64">
-                <img src='../../../images/GradientProfileIcon.png'>
-              </figure>
-            </a>
-            <a href="/library"><figure class="image is-64x64">
-                <img src='../../../images/LibraryIconFree.png'>
-              </figure></a>
-            </ul>                          
-             </nav>  
-            </section>
-        
-       
+
+       <main class="columns radius p-5">
+    
+    <!-- Navigation Bar -->
+<nav class="card is-1 radius p-5 margin-navbar" style="border:2px solid rgb(15, 165, 235); display: flex; flex-direction: column; justify-content: flex-start;">
+    <div class="nav navbar-nav navbar-left" style="display: flex; flex-direction: column;">
+        <div><a href="/"><figure class="image is-64x64">
+            <img src='../../../images/GradientHomeIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/profile"><figure class="image is-64x64">
+            <img src='../../../images/GradientProfileIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/library"><figure class="image is-64x64">
+            <img src='../../../images/LibraryIconFree.png'>
+          </figure>
+        </a>
+    </div>
+    </div>
+    <div style="margin-top: auto;text-decoration: none;">
+        <form action="/logout" method="POST" style="display: flex; justify-content: center;">
+            <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px;">Log Out</button>
+        </form>
+    </div>
+</nav>
+
+
 
         <section>
                 <h1>My Profile</h1>
+                <div style="border: 2px solid rgb(12, 120, 243)" class="radius">
             <form action="/get-car-details" method="POST" class="form-section color-blue">
-                <!-- ... existing car details ... -->
+                <!-- ... existing car details ...  -->
                
                 <div class="form-group">
                     <label for="fuel_type">Fuel Type: </label>
@@ -107,13 +118,10 @@
                         class="reset-button"
                     />
                     <input type="submit" class="submit-button" />
-                </div>
+                </div> 
+            </div>
             </form>
         </section>
-                <div>
-            <form action="/logout" method="POST" style="display: flex; justify-content: center;">
-                <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; text-decoration: none;">Log Out</button>
-            </form>
-        </div>
+    
     </body>
 </html>

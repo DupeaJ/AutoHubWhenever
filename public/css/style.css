@@ -37,7 +37,6 @@ main.column {
 margin: 5px;
 font-size: 24px;
 color: rgb(81, 32, 196);
-text-decoration: underline;
 flex-direction:row;
 
 }

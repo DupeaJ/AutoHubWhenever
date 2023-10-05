@@ -22,14 +22,26 @@
         <nav class="card is-1 radius p-3" style="border:2px solid rgb(15, 165, 235)">
             <div class="nav navbar-nav navbar-left">
                 <div class="margin-navbar">
-                    <a href="/">Home</a>
+                    <a href="/"><figure class="image is-64x64">
+                        <img src='../../../images/GradientHomeIcon.png'>
+                      </figure>
+                    </a>
                 </div>
                 <div class="margin-navbar">
-                    <a href="/profile">Profile</a> 
+                    <a href="/profile"><figure class="image is-64x64">
+                        <img src='../../../images/GradientProfileIcon.png'>
+                      </figure>
+                    </a> 
                 </div>
                 <div class="margin-navbar">
-                    <a href="/library">Library</a>
+                    <a href="/library"><figure class="image is-64x64">
+                        <img src='../../../images/LibraryIconFree.png'>
+                      </figure>
+                    </a>
                 </div>
+                <form action="/logout" method="POST" style="display: flex; justify-content: center;">
+                <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px;">Log Out</button>
+            </form>
             </div>
         </nav>
         <div class="column">
@@ -65,11 +77,6 @@
                 </div>
             </div>
         </main>
-        <div>
-            <form action="/logout" method="POST" style="display: flex; justify-content: center;">
-                <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px;">Log Out</button>
-            </form>
-        </div>
 </body>
 
 </html>

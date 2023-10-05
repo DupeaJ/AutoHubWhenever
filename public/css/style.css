@@ -12,7 +12,7 @@ body {
     background-attachment: fixed;
 }
 .form-section {
-    max-width: 500px;
+    /* max-width: 500px;  */
     margin: 0 auto;
     padding: 20px;
     background: #f9f9f9;
@@ -33,12 +33,27 @@ body {
 main.column {
     position: center;
 }
-.margin-navbar {
-    margin: 5px;
-    font-size: 24px;
-    color: rgb(81, 32, 196);
-    text-decoration: underline;
+.margin-navbar{
+margin: 5px;
+font-size: 24px;
+color: rgb(81, 32, 196);
+flex-direction:row;
+
 }
+
+nav.card.is-1.radius.p-5.margin-navbar {
+  top:50px;
+}
+
+
+ /* .margin-navbar a {
+  position:relative;
+  left:450px;
+  margin:15px;
+  border:15px;
+
+}  */
+
 #logo img {
     width: 250px;
     height: 90px;
@@ -47,12 +62,14 @@ main.column {
 }
 
 #logo div {
-    width: 50vw;
+    width: 18vw; 
     margin: 0 auto;
+    /* right:200px; */
 }
 
 nav {
-    flex-direction: column;
+  flex-direction: row;
+
 }
 
 nav a {
@@ -65,15 +82,17 @@ nav a {
     flex-direction: column;
     align-items: center;
 }
-nav ul a {
-    margin: 15px;
-    padding: 15px;
-    border: 15px;
-    font-size: 20px;
-    position: relative;
-    color: rgb(54, 0, 104);
-    /* right:725px; */
-}
+/* nav ul a {
+  margin:15px;
+  padding:15px;
+  border:15px;
+  font-size:20px;
+  position:relative;
+  color: rgb(54, 0, 104);
+  right:200px;
+  top:450px;
+  width:30vw;
+} */
 
 nav.column {
     position: relative;
@@ -96,16 +115,28 @@ header div {
     width: fit-content;
 }
 h1 {
-    color: rgb(81, 32, 196);
-    font-size: 35px;
-    font-style: italic;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    position: relative;
+  color: rgb(118, 41, 189);
+  font-size: 35px;
+  font-style: italic;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  position:relative;
+  margin:15px;
+  text-align:center;
+
+
+}
+h1.div.card {
+  position:relative;
 }
 
 h1.custom-header button {
     position: center;
+}
+
+div.flex-end h1{
+  right:200px;
+  position:center;
 }
 
 div select {
@@ -115,7 +146,7 @@ div select {
 .form-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
 .form-section div {
@@ -139,7 +170,9 @@ div input#cylinders {
     max-width: 300px;
 }
 .color-blue {
-    background-color: #4c8ccf;
+    background-color: #45cefc;
+    padding:50px;
+
 }
 .welcome-message {
     text-align: center;
@@ -183,8 +216,14 @@ div.video {
     left: 650px;
 }
 
-div.column {
+div.radius-border {
+  border-radius:8px;
+}
+
+main.columns.radius.p-6.custom-width div.column {
     position: relative;
+    text-align:center;
+
 }
 
 .custom-width {
@@ -194,6 +233,7 @@ div.column {
 section form {
     padding: 30px;
 }
+
 
 form.label {
     position: center;
@@ -210,7 +250,8 @@ ul {
 }
 
 ul a {
-    position: relative;
+  position:relative;
+
 }
 
 h2 {
@@ -225,6 +266,10 @@ h2 button {
 h2 form {
     position: relative;
     right: 50px;
+}
+
+h3 {
+  color: rgb(183, 0, 255);
 }
 
 p {
@@ -247,3 +292,127 @@ body.form {
     width: 150px;
     height: auto;
 }
+
+main {
+  position:relative;
+  left:200px;
+}
+
+main.columns.radius.p-5{
+  left:500px;
+  top:75px;
+}
+/*
+#map {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    margin: auto;
+    padding: 50px;
+
+  }
+
+*/
+
+/*
+  #search {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
+  
+#search-box {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.banner{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  
+}
+
+#banner-image {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: 300px;
+  padding-bottom: 50px;
+}
+
+img {
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.navbar-item {
+  color:white;
+}
+
+.navbar-link {
+  color:white;
+}
+
+*/
+
+
+
+/*
+
+#save-button {
+  display: flex;
+  flex-wrap: wrap;
+  display: inline;
+
+}
+
+ul {
+  text-align:center;
+  padding:10px
+
+}
+
+li {
+  text-align:center;
+}
+
+#email {
+  margin-left:4px;
+}
+
+
+@media screen and (max-width: 992px) {
+  body {
+    width: 50%;
+  
+  }
+  #map{
+    width: 50%;
+  }
+  .navbar-item{
+    color:#36454F
+  }
+  .navbar-link{
+color:#36454F
+  } 
+  #banner-image{
+    width:50%;
+  }
+}
+
+@media screen and (max-width: 200px) {
+  body {
+    width: 100%;
+  }
+  #map{
+    width: 100%;
+  }
+
+}
+*/

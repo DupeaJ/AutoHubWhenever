@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
-</head>
-<body>
-    <nav class="margin-navbar">
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <a href="/library">Library</a>
-    </nav>
-
-    <h1>My Profile</h1>
-
-    <section>
-        <form action="/get-car-details" method="POST" class="form-section color-blue">
-            <!-- ... existing car details ... -->
-
-            <div>
-                <label for="make">Car Make: </label>
-                <input type="text" id="make" name="make" placeholder="Make" required />
-            </div>
-            <div>
-                <label for="model">Car Model: </label>
-                <input type="text" id="model" name="model" placeholder="Model" required />
-            </div>
-            <div>
-                <label for="productionYear">Production Year: </label>
-                <input type="number" id="productionYear" name="productionYear" min="1900" max="2099" step="1" />
-            </div>
-            <div class="form-group">
-                <input type="reset" onclick="return confirm('Do you really want to reset the form?');" class="reset-button" />
-                <input type="submit" class="submit-button" />
-            </div>
-        </form>
-    </section>
-
-    <div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Profile</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    </head>
+       <main class="columns radius p-5">
+    <!-- Navigation Bar -->
+<nav class="card is-1 radius p-5 margin-navbar" style="border:2px solid rgb(15, 165, 235); display: flex; flex-direction: column; justify-content: flex-start;">
+    <div class="nav navbar-nav navbar-left" style="display: flex; flex-direction: column;">
+        <div><a href="/"><figure class="image is-64x64">
+            <img src='../../../images/GradientHomeIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/profile"><figure class="image is-64x64">
+            <img src='../../../images/GradientProfileIcon.png'>
+          </figure>
+        </a>
+    </div>
+        <div><a href="/library"><figure class="image is-64x64">
+            <img src='../../../images/LibraryIconFree.png'>
+          </figure>
+        </a>
+    </div>
+    </div>
+    <div style="margin-top: auto;text-decoration: none;">
         <form action="/logout" method="POST" style="display: flex; justify-content: center;">
-            <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; text-decoration: none;">Log Out</button>
+            <button type="logout" style="padding: 10px; background-color: red; color: white; border: none; border-radius: 5px;">Log Out</button>
         </form>
     </div>
-</body>
+</nav>
+        <section>
+                <h1>My Profile</h1>
+                <div style="border: 2px solid rgb(12, 158, 243)" class="radius-border">
+            <form action="/get-car-details" method="POST" class="form-section color-blue">
+                <!-- ... existing car details ...  -->
+                <div>
+                    <label for="make">Car Make: </label>
+                    <input
+                        type="text"
+                        id="make"
+                        name="make"
+                        placeholder="Make"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="model">Car Model: </label>
+                    <input
+                        type="text"
+                        id="model"
+                        name="model"
+                        placeholder="Model"
+                        required
+                    />
+                </div>
+                <div>
+                <label for="productionYear">Production Year: </label>
+                <input
+                type="number"
+                id="productionYear"
+                name="productionYear"
+                min="1900"
+                max="2099"
+                step="1" />
+                </div>
+                <div class="form-group">
+                    <input
+                        type="reset"
+                        onclick="return confirm('Do you really want to reset the form?');"
+                        class="reset-button"
+                    />
+                    <input type="submit" class="submit-button" />
+                </div>
+            </div>
+            </form>
+        </div>
+        </section>
+    </body>
 </html>

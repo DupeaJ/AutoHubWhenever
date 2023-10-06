@@ -62,15 +62,19 @@ AutoHub is an open source car application that streamlines your personal car car
 - [Ninja API](https://api-ninjas.com/)
 - [Youtube API](https://developers.google.com/youtube/v3)
 - [Bulma Library](https://bulma.io/)
-- [Icons]
+- [Icons]()
 
-   - [Home] (https://www.flaticon.com/free-icon/home-sweet-home_6824880?term=house&page=6&position=34&origin=tag&related_id=6824880)
+- Home(https://www.flaticon.com/free-icon/home-sweet-home_6824880?term=house&page=6&position=34&origin=tag&related_id=6824880)
 
-        - Attribution link:<a href="https://www.flaticon.com/free-icons/home-sweet-home" title="home sweet home icons">Home sweet home icons created by Us and Up - Flaticon</a> 
-   - [Profile] (https://www.flaticon.com/free-icon/profile_4675250?term=profile&page=1&position=5&origin=search&related_id=4675250)
-        - Attribution link:<a href="https://www.flaticon.com/free-icons/home-sweet-home" title="home sweet home icons">Home sweet home icons created by Us and Up - Flaticon</a>
-   - [Library] (https://www.flaticon.com/free-icon/book_10433049?term=book&page=1&position=68&origin=search&related_id=10433049)
-        - Attribution link:<a href="https://www.flaticon.com/free-icons/open-book" title="open book icons">Open book icons created by Karyative - Flaticon</a> 
+    - Attribution link (https://www.flaticon.com/free-icons/home-sweet-home)
+
+- Profile[(https://www.flaticon.com/free-icon/profile_4675250?term=profile&page=1&position=5&origin=search&related_id=4675250)]
+       
+     - Attribution link: <a href="https://www.flaticon.com/free-icons/home-sweet-home" title="home sweet home icons">Home sweet home icons created by Us and Up - Flaticon</a>
+
+- Library [(https://www.flaticon.com/free-icon/book_10433049?term=book&page=1&position=68&origin=search&related_id=10433049)]
+        
+    - Attribution link: <a href="https://www.flaticon.com/free-icons/open-book" title="open book icons">Open book icons created by Karyative - Flaticon</a> 
 
 
 ## License 
